@@ -1,14 +1,16 @@
-package com.jenkov.java.concurrency.deadlock.prevention;
+package com.jenkov.java.concurrency.deadlock.detection;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 
-public class Runnable1TimeOut implements Runnable{
+public class Runnable1DeadlockDetection implements Runnable{
 
+    private LockGraphFacade lockGraphFacade = null;
     private Lock lock1 = null;
     private Lock lock2 = null;
 
-    public Runnable1TimeOut(Lock lock1, Lock lock2) {
+    public Runnable1DeadlockDetection(LockGraphFacade lockGraphFacade, Lock lock1, Lock lock2) {
+        this.lockGraphFacade = lockGraphFacade;
         this.lock1 = lock1;
         this.lock2 = lock2;
     }
@@ -33,9 +35,34 @@ public class Runnable1TimeOut implements Runnable{
             //do the work - now that both locks have been acquired (locked by this thread)
 
             //unlock
-            lock2.unlock();
-            lock1.unlock();
+            this.lockGraphFacade.unlock(this.lock2);
+            this.lockGraphFacade.unlock(this.lock1);
         }
+    }
+
+
+
+    private boolean tryLockBothLocks() {
+        String threadName = Thread.currentThread().getName();
+
+        System.out.println(threadName + " lock1: attempt lock");
+        boolean lock1Succeeded = this.lockGraphFacade.tryLock(this.lock1);
+        if(!lock1Succeeded) {
+            return false;
+        }
+        System.out.println(threadName + " lock1: locked");
+
+        sleep(1000);
+
+        System.out.println(threadName + " lock2: attempt lock");
+        boolean lock2Succeeded = this.lockGraphFacade.tryLock(this.lock2);
+        if(!lock2Succeeded) {
+            this.lockGraphFacade.unlock(lock1);
+            return false;
+        }
+        System.out.println(threadName + " lock2: locked");
+
+        return true;
     }
 
     private void sleep(long timeMillis) {
@@ -44,32 +71,5 @@ public class Runnable1TimeOut implements Runnable{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-    }
-
-    private boolean tryLockBothLocks() {
-        String threadName = Thread.currentThread().getName();
-
-        try {
-            boolean lock1Succeeded = lock1.tryLock(1000, TimeUnit.MILLISECONDS);
-            if(!lock1Succeeded) {
-                return false;
-            }
-        } catch (InterruptedException e) {
-            System.out.println(threadName + " interrupted trying to lock Lock 1");
-            return false;
-        }
-        try {
-            boolean lock2Succeeded = lock2.tryLock(1000, TimeUnit.MILLISECONDS);
-            if(!lock2Succeeded) {
-                lock1.unlock();
-                return false;
-            }
-        } catch (InterruptedException e) {
-            System.out.println(threadName + " interrupted trying to lock Lock 2");
-            lock1.unlock();
-            return false;
-        }
-
-        return true;
     }
 }

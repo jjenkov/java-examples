@@ -22,29 +22,4 @@ public class DeadlockDetection {
             lockNode = lockedByThread.waitingFor;
         }
     }
-
-
-    public boolean isInvolvedInDeadlock2(LockNode lockNode) {
-        Set<ThreadNode> involvedThreadNodes = new HashSet<>();
-
-        boolean isDeadlockDetected = false;
-        boolean endOfGraphDetected = false;
-        while(!isDeadlockDetected && !endOfGraphDetected) {
-            ThreadNode lockedByThread = lockNode.lockedBy;
-
-            if(involvedThreadNodes.contains(lockedByThread)) {
-                isDeadlockDetected = true;
-                break;
-            }
-            involvedThreadNodes.add(lockedByThread);
-
-            if(lockedByThread.waitingFor == null) {
-                endOfGraphDetected = true;
-                break;
-            }
-            lockNode = lockedByThread.waitingFor;
-        }
-
-        return isDeadlockDetected;
-    }
 }
