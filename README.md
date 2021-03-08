@@ -9,7 +9,7 @@ the examples.
 
 ## Java Concurrency Examples
 
- - [Java Deadlock(https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/deadlock/DeadlockExample.java) 
+ - [Java Deadlock](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/deadlock/DeadlockExample.java) 
  - [Java Deadlock Prevention - Timeout Backoff](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/deadlock/prevention/DeadlockTimeoutExample.java)
 
 
