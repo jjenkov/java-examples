@@ -11,5 +11,8 @@ the examples.
 
  - [Java Deadlock](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/deadlock/DeadlockExample.java) 
  - [Java Deadlock Prevention - Timeout Backoff](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/deadlock/prevention/DeadlockTimeoutExample.java)
+ - [Java False Sharing Example](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/falsesharing/FalseSharingExample.java)
+ - [Java Thread Congestion - Shared BlockingQueue Example](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadcongestion/ThreadCongestionExample.java)
+ - [Java Thread Congestion - Separate BlockingQueue Example](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadcongestion/ThreadCongestionExample2.java)
 
 

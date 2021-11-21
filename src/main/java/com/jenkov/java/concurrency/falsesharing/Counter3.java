@@ -1,11 +1,16 @@
 package com.jenkov.java.concurrency.falsesharing;
 
 
-public class Counter2 {
+@jdk.internal.vm.annotation.Contended
+public class Counter3 {
 
-    @jdk.internal.vm.annotation.Contended
     public volatile long count1 = 0;
     //padding bytes
+
     public volatile long count2 = 0;
+    //padding bytes
+
+    public volatile long count3 = 0;
+    //padding bytes
 
 }
