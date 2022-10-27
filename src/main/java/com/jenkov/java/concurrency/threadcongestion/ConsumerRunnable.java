@@ -3,7 +3,6 @@ package com.jenkov.java.concurrency.threadcongestion;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class ConsumerRunnable implements Runnable {
 
@@ -26,26 +25,25 @@ public class ConsumerRunnable implements Runnable {
         System.out.println(Thread.currentThread().getName() + " consumer started.");
 
         long objectsConsumed = 0;
-        while(this.keepRunning.get()) {
-            takeObjectFromQueue();
-            objectsConsumed++;
+        while (this.keepRunning.get()) {
+            String obj = takeObjectFromQueue();
+            if(obj != null) { objectsConsumed++; }
         }
         System.out.println(Thread.currentThread().getName() + " finishing up");
-        while(this.blockingQueue.size() > 0) {
-            takeObjectFromQueue();
-            objectsConsumed++;
+        while (this.blockingQueue.size() > 0) {
+            String obj = takeObjectFromQueue();
+            if(obj != null) { objectsConsumed++; }
         }
-        System.out.println(Thread.currentThread().getName() + " consumer finished: " + objectsConsumed);
+        System.out.println(Thread.currentThread().getName() +
+                " consumer finished: " + objectsConsumed);
     }
 
-    private void takeObjectFromQueue() {
+    private String takeObjectFromQueue() {
         try {
-            String obj = blockingQueue.poll(1000, TimeUnit.MILLISECONDS);
-            if(obj != null) {
-                //System.out.println(Thread.currentThread().getName() + " " + obj);
-            }
+            return blockingQueue.poll(1000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             e.printStackTrace();
+            return null;
         }
     }
 }

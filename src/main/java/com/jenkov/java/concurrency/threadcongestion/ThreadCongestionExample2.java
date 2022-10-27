@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 public class ThreadCongestionExample2 {
 
     public static void main(String[] args) {
-        int objectsToProduce = 1024 * 1024;
+        int objectsToProduce = 1_000_000;
 
         BlockingQueue<String>[] blockingQueues = new BlockingQueue[3];
         for(int i=0; i<blockingQueues.length; i++) {
