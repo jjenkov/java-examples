@@ -26,4 +26,16 @@ public class SwitchExamples {
         System.out.println(result);
 
     }
+
+    public static void switchOnType() {
+
+        Integer input = Integer.valueOf(123);
+
+        String result =
+        switch(input) {
+            //case Integer.class -> "Integer";
+            case 123 -> "Low number";
+            default -> "Unknown";
+        };
+    }
 }
