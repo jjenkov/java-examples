@@ -1,10 +1,13 @@
 # Java Examples
 A set of Java examples - of Java SE features (core Java) and techniques. 
 
-The Java examples are related to the Java tutorials at <a href="http://tutorials.jenkov.com">tutorials.jenkov.com</a> .
+The Java examples are related to the Java tutorials at <a href="https://jenkov.com">jenkov.com</a> .
 Many of these Java examples will be hard to understand without the corresponding tutorial explaining the topic and
 the examples.
 
+# Examples Use Latest Version of Java
+Since part of the examples in this Git repository are using new Java language features - you should use the 
+latest version of Java when trying to run them.
 
 
 ## Java Concurrency Examples
