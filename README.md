@@ -18,9 +18,9 @@ latest version of Java when trying to run them.
  - [Java False Sharing Example](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/falsesharing/FalseSharingExample.java)
  - [Java Thread Congestion - Shared BlockingQueue Example](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadcongestion/ThreadCongestionExample.java)
  - [Java Thread Congestion - Separate BlockingQueue Example](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadcongestion/ThreadCongestionExample2.java)
- - [Java Thread Signaling Example 1](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/treadsignaling/ThreadSignalingExample.java)
- - [Java Thread Signaling Example 2](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/treadsignaling/ThreadSignalingExample2.java)
- - [Java Thread Signaling Example 3](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/treadsignaling/ThreadSignalingExample3.java)
- - [Java Thread Signaling Example 4](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/treadsignaling/ThreadSignalingExample4.java)
+ - [Java Thread Signaling Example 1](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadsignaling/ThreadSignalingExample.java)
+ - [Java Thread Signaling Example 2](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadsignaling/ThreadSignalingExample2.java)
+ - [Java Thread Signaling Example 3](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadsignaling/ThreadSignalingExample3.java)
+ - [Java Thread Signaling Example 4](https://github.com/jjenkov/java-examples/blob/main/src/main/java/com/jenkov/java/concurrency/threadsignaling/ThreadSignalingExample4.java)
 
 
