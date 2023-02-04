@@ -18,17 +18,12 @@ public class VirtualThreadExample {
         Thread vThreadUnstarted = Thread.ofVirtual().unstarted(runnable);
 
 
-        // Example 3: Create and start virtual thread with lambda expression
-        Thread vThread = Thread.ofVirtual().start(() -> {
-            for(int i=0; i<10; i++) {
-                System.out.println("Index: " + i);
-            }
-        });
 
+        vThreadUnstarted.start();
 
         // Example 4: How to join a virtual thread
         try {
-            vThread.join();
+            vThreadUnstarted.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
