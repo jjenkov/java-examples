@@ -1,4 +1,4 @@
-package thread;
+package com.jenkov.java.concurrency.thread;
 
 public class ThreadExample3 {
     public static class MyRunnable implements Runnable{
